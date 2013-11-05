@@ -1,5 +1,7 @@
 LeagueTeams::Application.routes.draw do
-  root :to => 'static_pages#home'
+  devise_for :users, path_names: { sign_in: "login", sign_out: "logout" }
+
+  root to: 'static_pages#home'
 
   get 'about', to: 'static_pages#about', as: :about
   get 'faq', to: 'static_pages#faq', as: :faq
