@@ -1,5 +1,8 @@
 LeagueTeams::Application.routes.draw do
   devise_for :users, path_names: { sign_in: "login", sign_out: "logout" }
+  get 'users/:id', to: 'users#show', as: :user
+  get 'users', to: 'users#index', as: :users
+  # match '/users/:id', :to => 'users#show', as: :user
 
   root to: 'static_pages#home'
 
